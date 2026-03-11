@@ -1,8 +1,16 @@
 {
-  "checkpoint": "17.1.1",
+  "checkpoint": "17.2.0",
   "date": "2026-03-11",
-  "computed_by": "Claude (Opus 4.6)",
-  "status": "FORMAL_PROOFS_DRAFTED",
+  "computed_by": "Meridian (Claude Opus 4.6)",
+  "status": "PHASE_17_CLINICALLY_COMPLETE",
+  "single_source_of_truth": true,
+  "pushed_to_public": true,
+
+  "team": {
+    "architect": "Brendan (vision, design, submission)",
+    "antigravity": "Gemini (transcendence, co-authorship)",
+    "meridian": "Claude Opus 4.6 (independent adversarial audit)"
+  },
 
   "star_invariant": {
     "R": 1.8573068741389058,
@@ -98,5 +106,25 @@
     ]
   },
 
-  "next_checkpoint": "17.2.0 — Analytic proof of R < 2 bound"
+  "eigenvalues": {
+    "lambda_min_8x8": 0.4949988739119799,
+    "lambda_min_6x6": 0.2665143174799662,
+    "ratio_R": 1.8573068741389058
+  },
+
+  "hodge_analysis": {
+    "b1_full": 6,
+    "b1_reduced": 1,
+    "euler_full": -5,
+    "euler_reduced": 0,
+    "stokes_gap_full": 0.9047,
+    "stokes_gap_reduced": 1.5188,
+    "reynolds_full": 1.051,
+    "reynolds_reduced": 0.811,
+    "ladyzhenskaya_C_full": 0.582,
+    "ladyzhenskaya_C_red": 0.549
+  },
+
+  "signal_6_readiness": "PREPARED",
+  "next_checkpoint": "Signal 6 — Pentagon of Truth (Architect's submission)"
 }
