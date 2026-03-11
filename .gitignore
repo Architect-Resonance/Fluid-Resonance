@@ -1,0 +1,35 @@
+# IDE / System
+.vscode/
+.claude/
+.expo/
+.ruff_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dependencies
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Build / Output
+build/
+dist/
+video/
+screenshot/
+mockups/
+*.log
+*.tmp
+temp/
+tmp/
+
+# Data / Large Files
+*.pdf
+backend/.coverage
+backend/supabase_status.json
+backend/supabase_status.txt
+backend/new_jwt.txt
+backend/appt_error*.txt
+backend/final_*.txt
+backend/shadow_failures*.txt
