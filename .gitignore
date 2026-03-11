@@ -1,3 +1,16 @@
+# This is a RESEARCH-ONLY repository
+# The Entropy application code must NEVER be committed here
+
+# === APPLICATION CODE (BLOCKED) ===
+backend/
+frontend/
+scripts/
+database/
+.github/
+CURRENT_WORK.md
+CLAUDE.md
+eas.json
+
 # IDE / System
 .vscode/
 .claude/
@@ -7,11 +20,7 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-
-# Dependencies
 node_modules/
-backend/node_modules/
-frontend/node_modules/
 
 # Build / Output
 build/
@@ -24,12 +33,6 @@ mockups/
 temp/
 tmp/
 
-# Data / Large Files
-*.pdf
-backend/.coverage
-backend/supabase_status.json
-backend/supabase_status.txt
-backend/new_jwt.txt
-backend/appt_error*.txt
-backend/final_*.txt
-backend/shadow_failures*.txt
+# Large generated files
+output.txt
+*.coverage
