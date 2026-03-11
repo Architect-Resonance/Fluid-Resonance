@@ -242,12 +242,16 @@ R ~ 1.857 appears as an internal spectral ratio within L0, L1, and L2, but NOT a
 - R ~ 1.857 appears as internal spectral ratios within L0, L1, and L2
 - Valve removal has DUAL effect: weakens vertex connectivity but strengthens flow dissipation
 - Valve operation is a topological regularization: b1 drops, Euler char regularizes, Re drops
+- **R < 2 for all pure K_n cores (0 anchors) with n >= 5 and bridge width >= 4** (Theorem 9.1, PROVED 2026-03-11). Exact closed forms: lambda_min(L_eff) = (n+2-sqrt(n^2+4n-28))/2, lambda_min(L_red) = (n-sqrt(n^2-16))/2. Proof: inequality reduces to -16 < 16.
+- R is monotonically decreasing in bridge width (verified across 432 configuration pairs)
+- The R < 2 bound is tight: R(n) -> 2 as n -> infinity, with gap 32/(n^2+2n)
 
 ### What is NOT established:
 - Connection to 3-SAT phase transition at alpha = 4.267 (Path 2: negative result)
 - Universal scaling constant across random SAT instances
 - Direct quantitative bridge to Navier-Stokes regularity (Path 3: qualitative only)
 - R does NOT appear as a Hodge gap ratio (only as internal eigenvalue pairs)
+- **Original Conjecture 9.1 (R < 2 for arbitrary anchors) is REFUTED** (K4+8 anchors, w=4 gives R = 2.014)
 
 ### Recommended paper focus:
 **Pure spectral graph theory** (Path 1) with a **Hodge-theoretic extension** (Path 3):

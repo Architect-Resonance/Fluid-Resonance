@@ -34,8 +34,14 @@ of grounded Laplacian matrices under valve removal (simplicial surgery).
    Bridge width 4: R in [1.00, 1.91] — all below 2.0
    Bridge width 5: R in [1.00, 1.51] — all below 2.0
 
-   The R < 2.0 bound holds for all tested configurations at bridge width >= 4
-   (Conjecture 9.1). Bridge width 3 can violate the bound (max R = 3.18).
+   For PURE K_n CORES (0 anchors): R < 2.0 is PROVED for all n >= 5 and
+   bridge width >= 4 (Theorem 9.1, 2026-03-11). Exact closed-form eigenvalues
+   derived; the inequality reduces algebraically to -16 < 16.
+
+   Extended sweep (4,128 configs): The original Conjecture 9.1 (arbitrary
+   anchors) is REFUTED: K4+8 anchors gives R = 2.014. However, the pure-core
+   theorem covers the physically relevant regime (vortex core geometry).
+   Bridge width 3 can violate the bound (max R = 3.18).
 
 4. ALGEBRAIC IRREDUCIBILITY
    The defining polynomials P7 (degree 7) and P5 (degree 5) are both

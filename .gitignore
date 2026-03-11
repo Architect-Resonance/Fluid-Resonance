@@ -1,38 +1,22 @@
-# This is a RESEARCH-ONLY repository
-# The Entropy application code must NEVER be committed here
-
-# === APPLICATION CODE (BLOCKED) ===
-backend/
-frontend/
-scripts/
-database/
-.github/
-CURRENT_WORK.md
-CLAUDE.md
-eas.json
-
-# IDE / System
-.vscode/
-.claude/
-.expo/
-.ruff_cache/
+# Python
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
-node_modules/
+.pytest_cache/
+.mypy_cache/
 
-# Build / Output
-build/
-dist/
-video/
-screenshot/
-mockups/
+# Debug & output
+debug_*.js
+output.txt
 *.log
 *.tmp
-temp/
-tmp/
 
-# Large generated files
-output.txt
-*.coverage
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

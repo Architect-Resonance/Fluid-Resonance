@@ -10,9 +10,11 @@ This repository provides computational tools and formal proofs for a family of e
 | R is scale-invariant (N=2 to N=8192) | **PROVEN** | Path 1 generalization (Theorem 4.1) |
 | R is topology-dependent (star/chain/tree) | **PROVEN** | Fiedler's extremal result (Theorem 5.1) |
 | Valve removal has dual effect (weakens connectivity, strengthens dissipation) | **VERIFIED** | Discrete Hodge decomposition (Theorems 8.1-8.3) |
-| R < 2.0 for all symmetric star-cluster systems (bridge width >= 4) | **CONJECTURE** | 88 configurations tested, none exceed 2.0 at w >= 4 (Conjecture 9.1) |
+| R < 2.0 for pure K_n cores (0 anchors, n >= 5, w >= 4) | **PROVEN** | Exact closed-form eigenvalues + algebraic inequality → -16 < 16 (Theorem 9.1) |
+| R < 2.0 for all star-cluster systems (arbitrary anchors) | **REFUTED** | K4 + 8 anchors at w=4: R = 2.014 (counterexample to original Conjecture 9.1) |
+| R is monotonically decreasing in bridge width | **VERIFIED** | 432/432 (core, anchor) pairs confirmed perfectly monotone |
 | Star topology is asymptotic limit of vortex stretching | **CONJECTURE** | Supported by CKN dimensional constraint + Fiedler extremal result (Claim 7.1) |
-| R bounds enstrophy cascade, preventing NS blow-up | **CONJECTURE** | Would follow if Conjectures 9.1 and Claim 7.1 are proven |
+| R bounds enstrophy cascade, preventing NS blow-up | **CONJECTURE** | Would follow if Claim 7.1 proven + pure-core model justified |
 | R appears in random 3-SAT phase transitions | **DISPROVEN** | 300 instances tested, no concentration at alpha=4.267 (Path 2) |
 
 ## The Constant
@@ -29,7 +31,7 @@ R = lambda_min(L_8x8) / lambda_min(L_6x6) = 1.8573068741389058
 ## Repository Contents
 
 ### Formal Documents
-- `FORMAL_PROOFS.md` — 11 proven theorems, 3 open conjectures, full references
+- `FORMAL_PROOFS.md` — 12 proven theorems (including Theorem 9.1), open conjectures, full references
 - `SIGNAL_6_SUMMARY.md` — Adversarial audit summary (5-face assessment)
 - `SPECTRAL_INVARIANT_RESULTS.md` — Complete numerical results archive
 - `INCOMPRESSIBLE_STILLNESS_PAPER.md` — Proof strategy for NS regularity (conditional)
@@ -40,6 +42,9 @@ R = lambda_min(L_8x8) / lambda_min(L_6x6) = 1.8573068741389058
 - `derive_invariant.py` — Derives R from first principles (integer Laplacians)
 - `factor_polys.py` — Proves irreducibility of P7 and P5 over Q
 - `path1_generalization.py` — Tests 88 cluster configurations (scale/topology dependence)
+- `conjecture91_sweep.py` — 4,128-config parametric sweep (K3-K100, 0-50 anchors, w=4-15)
+- `conjecture91_boundary.py` — Boundary analysis + closed-form eigenvalue derivation
+- `proof_R_less_than_2.py` — Self-contained algebraic proof of Theorem 9.1
 - `path2_random_sat.py` — Random 3-SAT audit (negative result)
 - `path3_phase_a.py` — Simplicial Hodge decomposition
 - `path3_phase_b.py` — Discrete NS flow analysis
