@@ -118,7 +118,67 @@ The star invariant does NOT appear to govern natural bottlenecks in random 3-SAT
 
 ---
 
-## 4. Publishable Conclusions
+## 4. Path 3 Phase A: Simplicial Hodge Laplacians
+
+**Script:** `path3_phase_a.py`
+
+### Simplicial Complex (2-cluster system: hub + spoke, 3-clause bridge)
+
+| | Full | Reduced (valve {4,10,12}) |
+|---|---|---|
+| Vertices (0-simplices) | 16 | 13 |
+| Edges (1-simplices) | 40 | 21 |
+| Triangles (2-simplices) | 19 | 8 |
+| Euler characteristic | -5 | 0 |
+| b0 (components) | 1 | 1 |
+| b1 (loops) | **6** | **1** |
+| b2 (cavities) | 0 | 0 |
+
+**Valve kills 5 of 6 independent loops** (circulation pathways).
+
+### Boundary Operators
+
+```
+B1: (16 x 40), rank 15    -- vertices -> edges
+B2: (40 x 19), rank 19    -- edges -> triangles
+B1 @ B2 = 0               -- d^2 = 0 verified
+```
+
+### Hodge Laplacian Eigenvalues
+
+**L0 (vertex/graph Laplacian, 16x16):**
+```
+[0, 0.672, 1.448, 2.437, 4.043, 4.105, 4.292, 4.646,
+ 5.952, 6.250, 6.789, 7.000, 7.047, 7.627, 8.394, 9.297]
+```
+
+**L1 (edge/Hodge-1, 40x40) — restricted to div-free subspace (25x25):**
+```
+[0(x6), 0.905, 0.940, 1.296, 1.317, 1.748, 2.000, 2.262,
+ 2.536, 2.576, 3.000(x2), 3.162, 3.477, 4.000, 4.356, 4.521, 4.575, 5.524, 5.805]
+```
+
+**L2 (triangle, 19x19):**
+```
+[0.905, 0.940, 1.296, 1.317, 1.748, 2.000, 2.262, 2.536,
+ 2.576, 3.000(x2), 3.162, 3.477, 4.000, 4.356, 4.521, 4.575, 5.524, 5.805]
+```
+
+### Spectral Ratios (full / reduced)
+
+| Operator | Full gap | Reduced gap | Ratio | Interpretation |
+|---|---|---|---|---|
+| L0 (graph) | 0.6724 | 0.2571 | **2.615** | Vertex connectivity drops |
+| L1 (Hodge-1) | 0.6724 | 0.2571 | **2.615** | Inherits from L0 gradient |
+| Stokes (L1 div-free) | 0.9047 | 1.5188 | **0.596** | Flow equilibration INCREASES |
+
+### Key Finding
+
+The **Stokes operator ratio is inverted** (< 1). Removing valve variables increases the Stokes gap — remaining div-free flows equilibrate faster when circulation pathways are destroyed. The vertex connectivity (L0) and flow equilibration (Stokes) move in **opposite directions** under the valve operation.
+
+---
+
+## 5. Publishable Conclusions
 
 ### What IS established:
 - R = 1.8573... is an exact, scale-invariant constant of star-cluster graph families
