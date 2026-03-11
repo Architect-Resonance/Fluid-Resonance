@@ -1,0 +1,102 @@
+{
+  "checkpoint": "17.1.1",
+  "date": "2026-03-11",
+  "computed_by": "Claude (Opus 4.6)",
+  "status": "FORMAL_PROOFS_DRAFTED",
+
+  "star_invariant": {
+    "R": 1.8573068741389058,
+    "R_rational_approx": "13/7",
+    "R_rational_error": "0.009%",
+    "base_irrational": "sqrt(17)",
+    "cluster": "K5+2anchor",
+    "bridge_width": 3,
+    "bridge_clauses": "asymmetric 3-clause"
+  },
+
+  "characteristic_polynomials": {
+    "P7_numerator": "t^7 - 33t^6 + 443t^5 - 3097t^4 + 11948t^3 - 24634t^2 + 23588t - 6916",
+    "P7_irreducible": true,
+    "P5_denominator": "t^5 - 17t^4 + 104t^3 - 270t^2 + 260t - 52",
+    "P5_irreducible": true
+  },
+
+  "integer_laplacians": {
+    "L_8x8": [
+      [ 7, -1, -1, -1, -1, -1,  0,  0],
+      [-1,  6, -1, -1, -1,  0,  0,  0],
+      [-1, -1,  6, -1, -1,  0, -1,  0],
+      [-1, -1, -1,  5, -1, -1,  0,  0],
+      [-1, -1, -1, -1,  6,  0, -1,  0],
+      [-1,  0,  0, -1,  0,  4, -1, -1],
+      [ 0,  0, -1,  0, -1, -1,  4, -1],
+      [ 0,  0,  0,  0,  0, -1, -1,  2]
+    ],
+    "L_6x6": [
+      [ 5, -1, -1, -1,  0,  0],
+      [-1,  4, -1,  0,  0,  0],
+      [-1, -1,  3, -1,  0,  0],
+      [-1,  0, -1,  4, -1, -1],
+      [ 0,  0,  0, -1,  2, -1],
+      [ 0,  0,  0, -1, -1,  2]
+    ]
+  },
+
+  "paths_completed": {
+    "path1_generalization": {
+      "status": "COMPLETE",
+      "configurations_scanned": 88,
+      "key_finding": "R is geometry-specific; bridge width 1-2 degenerate",
+      "result": "POSITIVE — exact algebraic invariant family established"
+    },
+    "path2_random_sat": {
+      "status": "COMPLETE",
+      "instances_tested": 300,
+      "key_finding": "No special behavior at alpha=4.267 (critical threshold)",
+      "result": "NEGATIVE — no SAT connection"
+    },
+    "path3_hodge_navier_stokes": {
+      "status": "COMPLETE",
+      "phases": ["A: simplicial Hodge", "B: discrete flow", "C: spectral bridge"],
+      "key_finding": "Valve = topological regularization; dual vertex-weakening / flow-strengthening",
+      "result": "QUALITATIVE — analogy established, not quantitative bridge"
+    }
+  },
+
+  "formal_proofs": {
+    "status": "DRAFTED",
+    "document": "FORMAL_PROOFS.md",
+    "proven_theorems": [
+      "Thm 1.1: Equitable Partition Reduction (Godsil-Royle)",
+      "Thm 2.1: Grounded Laplacian as Schur Complement",
+      "Prop 2.2: Integer Laplacian Construction",
+      "Thm 3.1: Irreducibility of P_7 over Q",
+      "Thm 3.2: Irreducibility of P_5 over Q",
+      "Thm 4.1: Scale Invariance",
+      "Thm 5.1: Topology Dependence",
+      "Thm 8.1: Enstrophy-Eigenvalue Identity",
+      "Thm 8.2: Dual Effect of Valve Removal",
+      "Thm 8.3: Topological Regularization",
+      "Thm 11.1: R in Hodge Spectrum"
+    ],
+    "open_conjectures": [
+      "Conjecture 9.1: R < 2 for all star-cluster systems (bridge width >= 4)",
+      "Claim 7.1: Star as asymptotic limit of vortex stretching",
+      "Proposition 10.2: Spectral collapse bound prevents blow-up cascade"
+    ]
+  },
+
+  "continuity_mapping": {
+    "status": "ARGUMENT_DRAFTED",
+    "key_claim": "Symmetric star graph is the asymptotic limit of vortex stretching events",
+    "R_bound": "R = 1.857 < 2.0",
+    "implication": "Spectral gap cannot halve under single valve operation; prevents enstrophy cascade",
+    "missing_pieces": [
+      "Analytic proof of Conjecture 9.1 (R < 2 for all n, w >= 4)",
+      "Formalization via axisymmetric NS solutions (Hou-Li scenario)",
+      "Continuum limit of discrete spectral collapse sequence"
+    ]
+  },
+
+  "next_checkpoint": "17.2.0 — Analytic proof of R < 2 bound"
+}
