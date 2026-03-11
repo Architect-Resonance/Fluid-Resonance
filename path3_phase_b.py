@@ -155,8 +155,8 @@ for idx in top_edges:
     e = full["edges"][idx]
     print(f"      edge {e}: f = {fiedler_flow[idx]:+.6f}")
 
-# Check divergence-free
-div_check = full["B1"].T @ fiedler_flow
+# Check divergence-free: div(f) = B1 @ f (B1 is 16x40, f is 40)
+div_check = full["B1"] @ fiedler_flow
 print(f"\n    Divergence check: max|div(f)| = {np.max(np.abs(div_check)):.2e}")
 
 # Compute curl of Fiedler flow
