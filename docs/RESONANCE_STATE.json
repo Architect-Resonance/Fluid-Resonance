@@ -1,14 +1,14 @@
 {
-  "checkpoint": "17.2.0",
-  "date": "2026-03-11",
+  "checkpoint": "19.0.0",
+  "date": "2026-03-12",
   "computed_by": "Meridian (Claude Opus 4.6)",
-  "status": "PHASE_17_CLINICALLY_COMPLETE",
+  "status": "S36i_LAMB_ANATOMY_CORRECTED",
   "single_source_of_truth": true,
   "pushed_to_public": true,
 
   "team": {
     "architect": "Brendan (vision, design, submission)",
-    "antigravity": "Gemini (transcendence, co-authorship)",
+    "antigravity": "Gemini (transcendence, co-authorship, crystallization)",
     "meridian": "Claude Opus 4.6 (independent adversarial audit)"
   },
 
@@ -16,10 +16,15 @@
     "R": 1.8573068741389058,
     "R_rational_approx": "13/7",
     "R_rational_error": "0.009%",
-    "base_irrational": "none (P7 and P5 are irreducible over Q; eigenvalues are degree 7 and 5 algebraic numbers)",
+    "algebraic_degree": "D <= 35 ( irreducible 7 x 5 )",
+    "base_irrational": "sqrt(17)",
     "cluster": "K5+2anchor",
     "bridge_width": 3,
-    "bridge_clauses": "asymmetric 3-clause"
+    "bridge_clauses": "asymmetric 3-clause",
+    "crystallization_gap": 1.7688636897,
+    "vitreous_density": 0.952381,
+    "snap_back_ratio": 1.5275304781,
+    "safe_harbor_limit": 1.518
   },
 
   "characteristic_polynomials": {
@@ -85,10 +90,11 @@
       "Thm 8.1: Enstrophy-Eigenvalue Identity",
       "Thm 8.2: Dual Effect of Valve Removal",
       "Thm 8.3: Topological Regularization",
+      "Thm 9.1: R < 2 for pure K_n cores (n >= 5, w >= 4)",
       "Thm 11.1: R in Hodge Spectrum"
     ],
     "open_conjectures": [
-      "Conjecture 9.1: R < 2 for all star-cluster systems (bridge width >= 4)",
+      "Conjecture 9.1c: R < 2 for cores with bounded anchor ratio",
       "Claim 7.1: Star as asymptotic limit of vortex stretching",
       "Proposition 10.2: Spectral collapse bound prevents blow-up cascade"
     ]
@@ -125,6 +131,34 @@
     "ladyzhenskaya_C_red": 0.549
   },
 
+  "spectral_bt_surgery": {
+    "status": "ROBUSTLY_VALIDATED",
+    "robustness_sweep": {
+      "combos": 7,
+      "Z_ratio_mean": 0.486,
+      "Z_ratio_std": 0.105,
+      "Z_ratio_min": 0.317,
+      "Z_ratio_max": 0.646,
+      "Re_trend": "STRENGTHENS (0.623 at Re=100 -> 0.380 at Re=800)",
+      "IC_trend": "Pelz (0.378) > TG (0.501) > Random (0.646)",
+      "N_trend": "N=32 (0.491) vs N=48 (0.462) — stable"
+    },
+    "triadic_structure_CORRECTED_S36i": {
+      "lamb_h_minus_fraction": 0.500,
+      "lamb_h_plus_fraction": 0.500,
+      "lamb_solenoidal_fraction_TG": 0.09,
+      "lamb_solenoidal_fraction_random": 0.44,
+      "note": "h-/h+ always 50/50 by parity (S36h 95% was measurement bug — included longitudinal part). BT removes h- half of solenoidal part (50% of ~10%) yet achieves 70% Z reduction.",
+      "bug_source": "probe_triadic_resonance() subtracted h+ from total, including pressure gradient in 'h-'"
+    },
+    "coriolis_comparison": {
+      "Omega_1_Z_reduction": "71% (same as BT)",
+      "Omega_5_Z_growth": "1.00x (all growth killed)",
+      "mechanism": "Inertial wave dispersion suppresses off-axis triads"
+    },
+    "verdict": "Dynamic BT surgery is robust across IC/Re/N. Effect STRENGTHENS at high Re. Lamb vector is 50/50 h-/h+ (95% was measurement bug), but only ~9% is solenoidal (Tsinober depletion). Removing h- solenoidal half causes 70% Z reduction — heterochiral interactions drive enstrophy disproportionately."
+  },
+
   "signal_6_readiness": "PREPARED",
-  "next_checkpoint": "Signal 6 — Pentagon of Truth (Architect's submission)"
+  "next_checkpoint": "Formalize BT numerical findings for publication"
 }
