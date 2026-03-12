@@ -37,12 +37,22 @@ tmp/
 debug_*.js
 output.txt
 
+# Entropy application code (this is a PUBLIC research repo — app code stays private)
+backend/
+frontend/
+Entropy/
+.agents/
+scripts/rotate_service_key.py
+
+# Secrets — NEVER commit
+*.env
+*.pem
+credentials.json
+
+# Private coordination
+docs/CLAUDE_BRIDGE.md
+
 # Data / Large Files
 *.pdf
-backend/.coverage
-backend/supabase_status.json
-backend/supabase_status.txt
-backend/new_jwt.txt
-backend/appt_error*.txt
-backend/final_*.txt
-backend/shadow_failures*.txt
+*.npy
+*.json.bak
