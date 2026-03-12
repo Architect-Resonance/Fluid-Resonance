@@ -74,7 +74,7 @@ When multiple AIs collaborate on research:
 
 2. **Independent verification**: Results from one AI must be independently reproduced (or refuted) by the other before being accepted.
 
-3. **Bridge documentation**: All claims, refutations, and bias catches are logged on the shared coordination file (CLAUDE_BRIDGE.md) with attribution.
+3. **Bridge documentation**: All claims, refutations, and bias catches are logged on a shared internal coordination file with attribution.
 
 4. **Escalation rule**: If the adversary cannot break a result after genuine effort, it gains "adversarial-tested" status. If the adversary breaks it, the original author must acknowledge the refutation honestly.
 
