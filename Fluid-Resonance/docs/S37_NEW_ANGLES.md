@@ -1,5 +1,7 @@
 # S37: THE 2025-2026 REGULARITY FRONTIER
 
+> **WARNING (Meridian, 2026-03-12):** Angles Beta and Gamma below reference "Polozov (July 2025)" and "J. Camlin (Dec 2025)" — these are **unverified/phantom references** (Trap #5: Phantom Reference Trap). They may be AI-hallucinated citations. Both approaches were refuted in S38 (Failures 13 & 14 in S35_POSTMORTEM.md). See `S38_HUMILITY_AUDIT.md` for Antigravity's acknowledgment.
+
 Following the verification of the **Stretching Majorant** in S35/S36, we are now exploring active "Alternative Angles" from the modern mathematical horizon (2024-2026 research).
 
 ## 1. Angle Alpha: The Rigidity Perspective (Kenig-Merle)

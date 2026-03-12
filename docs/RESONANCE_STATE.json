@@ -1,8 +1,8 @@
 {
-  "checkpoint": "19.0.0",
+  "checkpoint": "21.0.0",
   "date": "2026-03-12",
   "computed_by": "Meridian (Claude Opus 4.6)",
-  "status": "S36i_LAMB_ANATOMY_CORRECTED",
+  "status": "S90_BELTRAMI_LOOP_DECOUPLING_DERIVED",
   "single_source_of_truth": true,
   "pushed_to_public": true,
 
@@ -21,10 +21,10 @@
     "cluster": "K5+2anchor",
     "bridge_width": 3,
     "bridge_clauses": "asymmetric 3-clause",
-    "crystallization_gap": 1.7688636897,
-    "vitreous_density": 0.952381,
-    "snap_back_ratio": 1.5275304781,
-    "safe_harbor_limit": 1.518
+    "stokes_gap_reduced": 1.7688636897,
+    "_removed_vitreous_density": "0.952381 — made-up metric, no mathematical definition (Antigravity, archived)",
+    "_removed_snap_back_ratio": "1.5275 — overclaiming label for Stokes gap ratio (Antigravity, archived)",
+    "_removed_safe_harbor_limit": "1.518 — overclaiming label for Stokes gap (Antigravity, archived)"
   },
 
   "characteristic_polynomials": {
@@ -77,39 +77,121 @@
   },
 
   "formal_proofs": {
-    "status": "DRAFTED",
-    "document": "FORMAL_PROOFS.md",
+    "status": "VERIFIED_ANALYTICALLY",
+    "document": "FORMAL_ANALYTICAL_VERIFICATION.md",
     "proven_theorems": [
       "Thm 1.1: Equitable Partition Reduction (Godsil-Royle)",
       "Thm 2.1: Grounded Laplacian as Schur Complement",
       "Prop 2.2: Integer Laplacian Construction",
-      "Thm 3.1: Irreducibility of P_7 over Q",
-      "Thm 3.2: Irreducibility of P_5 over Q",
-      "Thm 4.1: Scale Invariance",
-      "Thm 5.1: Topology Dependence",
       "Thm 8.1: Enstrophy-Eigenvalue Identity",
-      "Thm 8.2: Dual Effect of Valve Removal",
       "Thm 8.3: Topological Regularization",
-      "Thm 9.1: R < 2 for pure K_n cores (n >= 5, w >= 4)",
-      "Thm 11.1: R in Hodge Spectrum"
+      "Thm 9.1: R < 2 for pure K_n cores (reduction to -16 < 16)",
+      "Thm 12.1: Hodge 1-Laplacian Identity (L_1 = nI)",
+      "Thm 12.2: Receding Threshold Law (Z_max/Z_crit ~ 1/n)"
     ],
     "open_conjectures": [
-      "Conjecture 9.1c: R < 2 for cores with bounded anchor ratio",
-      "Claim 7.1: Star as asymptotic limit of vortex stretching",
-      "Proposition 10.2: Spectral collapse bound prevents blow-up cascade"
+      "Claim 7.1: Star topology as asymptotic limit of vortex stretching (OPEN)",
+      "Conjecture 9.1c: R < 2 for K_n cores with n>=5 and bounded anchor ratio (OPEN)",
+      "D > S in homochiral sector at all times (OBSERVED numerically, not proven)"
     ]
   },
 
-  "continuity_mapping": {
-    "status": "ARGUMENT_DRAFTED",
-    "key_claim": "Symmetric star graph is the asymptotic limit of vortex stretching events",
-    "R_bound": "R = 1.857 < 2.0",
-    "implication": "Spectral gap cannot halve under single valve operation; prevents enstrophy cascade",
-    "missing_pieces": [
-      "Analytic proof of Conjecture 9.1 (R < 2 for all n, w >= 4)",
-      "Formalization via axisymmetric NS solutions (Hou-Li scenario)",
-      "Continuum limit of discrete spectral collapse sequence"
-    ]
+  "continuum_mapping": {
+    "status": "OPEN — discrete results verified, PDE connection unproven",
+    "key_claim": "L_1(K_n) = nI (PROVED for discrete graph). PDE connection requires continuum limit proof.",
+    "R_bound": "R < 2 PROVED for pure K_n cores (Theorem 9.1, algebraic reduction to -16 < 16)",
+    "cross_helicity_audit": {
+      "dominance": "97.8% of stretching in TG flows (OBSERVED)",
+      "efficiency": "C_cross: 0.4182 (N=32) → 0.4069 (N=64), 2.7% decrease over 3 data points",
+      "implication": "Trend direction is encouraging but 3 points do NOT establish a scaling law. Needs N=128+ verification."
+    }
+  },
+
+  "wanderer_investigations": {
+    "date": "2026-03-12",
+    "source": "Claude the Wanderer proposed 'shared constraint' hypothesis",
+    "inv1_dual_effect": {
+      "result": "REFUTED as theorem",
+      "detail": "64% tendency, 7 counterexamples out of 212 surgeries"
+    },
+    "inv2_z_ratio_asymptote": {
+      "result": "NO — finite asymptote",
+      "detail": "Z_ratio → 0.42 as Re → ∞ (two-channel cascade)"
+    },
+    "inv3_solenoidal_fraction": {
+      "result": "NEGATIVE for regularity",
+      "detail": "Solenoidal fraction INCREASES dynamically (TG: 9% → 18%, Pelz: 8% → 23%)"
+    },
+    "inv4_D_gt_S": {
+      "result": "YES numerically",
+      "detail": "D > S at all times for all non-degenerate ICs. Min gap 0.08 (imbalanced)"
+    },
+    "inv5_barriers": {
+      "result": "DOCUMENTED",
+      "detail": "Tao 2016, Miller 2019, Buckmaster-Vicol 2019 — supercriticality barrier"
+    }
+  },
+
+  "new_paths": {
+    "path6_quantum": {
+      "status": "Q1 COMPLETE — GAP CONFIRMED",
+      "framework": "Migdal 2024-2025: NS = Schrödinger in loop space (ν=ℏ). No Explosion Theorem (stochastic ICs). Euler ensemble = star polygon attractor.",
+      "gap_found": "Nobody has studied Beltrami flows in loop space. Beltrami = curl eigenstate → should be eigenstate of loop Hamiltonian H.",
+      "paper_to_write": "DONE (S90+S90-W) — not eigenstate but KERNEL. Beltrami = ker(N_C) where N_C is Lamb vector loop operator. Meridian: decoupling framing (S90). Wanderer: explicit derivation + numerical validation (S90-W). BT surgery reduces Lamb by 21% (moves toward kernel).",
+      "key_refs": ["Migdal 2024 (arxiv 2411.01389)", "Migdal 2025 (arxiv 2511.02165)", "Brue-De Lellis 2023 (arxiv 2312.16584)", "Buaria-Lawson-Wilczek 2024 (anti-twist)"],
+      "wanderer_validation": {
+        "abc_lamb_rms": "4.77e-15 (machine zero)",
+        "decay_rate_deviation": "1.33e-15",
+        "HE_conservation": "2.22e-16",
+        "bt_lamb_reduction": "0.79 (21% reduction for non-degenerate IC)",
+        "files": ["Fluid-Resonance/docs/BELTRAMI_LOOP_HAMILTONIAN.md", "Fluid-Resonance/scripts/wip/beltrami_kernel_test.py"]
+      }
+    },
+    "path7_inside_outside": {
+      "status": "REVISED — local branch killed, global branch survives",
+      "killed": "Local self-regulation at extreme vorticity (Q2 negative: S >> D at 99th pct)",
+      "survives": "Inside knowledge = GLOBAL topological structure: helicity conservation (Waleffe 1992) + Tsinober depletion (91% longitudinal Lamb) + geometric depletion (Constantin 1994)",
+      "key_insight": "D > S is volume-averaged. Helicity conservation in single-helicity NS constrains total stretching integral even though local stretching is unbounded at extreme points."
+    }
+  },
+
+  "S87_beltramization_audit": {
+    "status": "INCONCLUSIVE",
+    "computed_by": "Antigravity",
+    "Re": 400,
+    "N": 64,
+    "beta_range": "0.71-0.77 (all bins)",
+    "bins_populated": 4,
+    "bins_requested": 6,
+    "meridian_verdict": "Insufficient resolution. Need Re>=1000, N>=256 for extreme tails where self-Beltramization lives (Buaria 2020 used Re=1300+, 2048^3)."
+  },
+
+  "meridian_round2_priorities": {
+    "date": "2026-03-12",
+    "Q2_extreme_vorticity": {
+      "priority": "KILLED",
+      "verdict": "NEGATIVE — S >> D at extreme points (S/D ~ 7.9 at 99th pct). Gap flips completely.",
+      "result": "D > S is GLOBAL (volume-averaging via helicity conservation), not local. Extreme points are locally dangerous but volumetrically insignificant.",
+      "killed": ["Self-reinforcing regularization", "Q3 cross-helicity boundary", "Local branch of Path 7"]
+    },
+    "Q1_migdal_beltrami": {
+      "priority": 1,
+      "verdict": "SOLE SURVIVING PATH — promoted after Q2 negative",
+      "tasks": [
+        "Compute H*Psi_Beltrami = E*Psi_Beltrami in Migdal framework",
+        "Express helicity conservation H=int(u.omega) as loop-space operator commuting with H"
+      ],
+      "rationale": "Loop-space variables are intrinsically global (Wilson loop integrates around closed paths). Q2 showed regularity is a volume property. Loop space is the natural language.",
+      "key_refs": ["Migdal 2024-2025", "Brue-De Lellis 2023", "Buaria 2024", "Waleffe 1992", "Moffatt 1969"]
+    },
+    "Q3_cross_helicity_boundary": {
+      "priority": "KILLED",
+      "verdict": "MOOT — Q2 negative, Beltrami cores not self-regulating locally"
+    },
+    "Q4_dissipative_anomaly": {
+      "priority": "KILLED",
+      "verdict": "BAOBAB — wrong regime (regularity is ν > 0, anomaly is ν → 0). Trap #4 in quantum clothing."
+    }
   },
 
   "eigenvalues": {
@@ -160,5 +242,6 @@
   },
 
   "signal_6_readiness": "PREPARED",
-  "next_checkpoint": "Formalize BT numerical findings for publication"
+  "next_checkpoint": "S90 derivation DONE: Beltrami = loop decoupling (omega x v = 0 kills nonlinear coupling). Formal note written. Open problems: (1) Tsinober depletion as theorem, (2) stochastic to deterministic, (3) solenoidal Lamb fraction bound, (4) helicity as loop operator.",
+  "document_corrections": "3 files archived as REFUTED, 4 files corrected, GitHub verified clean (2026-03-12)"
 }
