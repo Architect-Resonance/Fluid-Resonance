@@ -1,0 +1,214 @@
+{
+  "file": "..\\..\\the_shape.tex",
+  "section": 5,
+  "timestamp": "2026-03-17T21:38:16.002719",
+  "summary": {
+    "CONFIRMED": 3,
+    "REFUTED": 0,
+    "INCONCLUSIVE": 0,
+    "SKIPPED": 9
+  },
+  "claims": [
+    {
+      "label": "unlabeled:definition:285",
+      "env_type": "definition",
+      "title": "Information flow, Tanogami--Araki",
+      "line_number": 285,
+      "has_proof": false,
+      "status": "SKIPPED",
+      "method": "No automated verifier registered",
+      "notes": "Claim type: definition, title: Information flow, Tanogami--Araki",
+      "details": null
+    },
+    {
+      "label": "prop:fano-lap",
+      "env_type": "proposition",
+      "title": "Fano Laplacian",
+      "line_number": 326,
+      "has_proof": true,
+      "status": "CONFIRMED",
+      "method": "Exact NumPy eigenvalue computation",
+      "notes": "Max eigenvalue error: 8.88e-16",
+      "details": {
+        "eigenvalues": [
+          -1.6653345369377348e-16,
+          1.7499999999999991,
+          1.7499999999999996,
+          1.75,
+          1.75,
+          1.75,
+          1.75
+        ],
+        "expected": [
+          0.0,
+          1.75,
+          1.75,
+          1.75,
+          1.75,
+          1.75,
+          1.75
+        ]
+      }
+    },
+    {
+      "label": "prop:fano-throughput",
+      "env_type": "proposition",
+      "title": "Fano throughput bound",
+      "line_number": 355,
+      "has_proof": true,
+      "status": "SKIPPED",
+      "method": "No automated verifier registered",
+      "notes": "Claim type: proposition, title: Fano throughput bound",
+      "details": null
+    },
+    {
+      "label": "thm:depol",
+      "env_type": "theorem",
+      "title": "Universal Depolarization",
+      "line_number": 382,
+      "has_proof": true,
+      "status": "SKIPPED",
+      "method": "No automated verifier registered",
+      "notes": "Claim type: theorem, title: Universal Depolarization",
+      "details": null
+    },
+    {
+      "label": "prop:vonmises",
+      "env_type": "proposition",
+      "title": "Von Mises phase statistics",
+      "line_number": 408,
+      "has_proof": true,
+      "status": "CONFIRMED",
+      "method": "Numerical at \u03ba=[0.5, 1, 2, 5, 10, 20, 50], crossover search",
+      "notes": "Asymptotic converges (diff 0.0025 at \u03ba=50). Crossover at \u03ba*\u22486.55 (paper says \u22486.55).",
+      "details": {
+        "convergence": [
+          {
+            "kappa": 0.5,
+            "exact": 1.3994267855948266,
+            "asymptotic": 1.2655121234846454,
+            "diff": 0.13391466211018122
+          },
+          {
+            "kappa": 1,
+            "exact": 1.0737914249165241,
+            "asymptotic": 0.9189385332046727,
+            "diff": 0.15485289171185146
+          },
+          {
+            "kappa": 2,
+            "exact": 0.6618706078923016,
+            "asymptotic": 0.5723649429247001,
+            "diff": 0.08950566496760148
+          },
+          {
+            "kappa": 5,
+            "exact": 0.1425588422318791,
+            "asymptotic": 0.11421957698762253,
+            "diff": 0.028339265244256562
+          },
+          {
+            "kappa": 10,
+            "exact": -0.21915085047195948,
+            "asymptotic": -0.23235401329235011,
+            "diff": 0.013203162820390635
+          },
+          {
+            "kappa": 20,
+            "exact": -0.5725125053463804,
+            "asymptotic": -0.5789276035723228,
+            "diff": 0.006415098225942328
+          },
+          {
+            "kappa": 50,
+            "exact": -1.0345474317188517,
+            "asymptotic": -1.0370729695094003,
+            "diff": 0.0025255377905486487
+          }
+        ],
+        "crossover": 6.55050505050505
+      }
+    },
+    {
+      "label": "prop:assembly",
+      "env_type": "proposition",
+      "title": "Finite assembly time",
+      "line_number": 443,
+      "has_proof": true,
+      "status": "CONFIRMED",
+      "method": "Direct computation + 200-term partial sum",
+      "notes": "Exact: 2.702414, claimed: 2.7, rel err: 0.0893%. Partial sum agrees to 1.64e-16.",
+      "details": {
+        "exact": 2.7024143839193155,
+        "claimed": 2.7,
+        "partial_sum": 2.702414383919315
+      }
+    },
+    {
+      "label": "thm:BT",
+      "env_type": "theorem",
+      "title": "Biferale--Titi, 2013",
+      "line_number": 473,
+      "has_proof": false,
+      "status": "SKIPPED",
+      "method": "No automated verifier registered",
+      "notes": "Claim type: theorem, title: Biferale--Titi, 2013",
+      "details": null
+    },
+    {
+      "label": "prop:cross-dominant",
+      "env_type": "proposition",
+      "title": "Cross-helical dominance of forward cascade",
+      "line_number": 489,
+      "has_proof": false,
+      "status": "SKIPPED",
+      "method": "No automated verifier registered",
+      "notes": "Claim type: proposition, title: Cross-helical dominance of forward cascade",
+      "details": null
+    },
+    {
+      "label": "cor:blowup-cross",
+      "env_type": "corollary",
+      "title": "Blow-up requires cross-helical interactions",
+      "line_number": 497,
+      "has_proof": false,
+      "status": "SKIPPED",
+      "method": "No automated verifier registered",
+      "notes": "Claim type: corollary, title: Blow-up requires cross-helical interactions",
+      "details": null
+    },
+    {
+      "label": "prop:chain-suppression",
+      "env_type": "proposition",
+      "title": "Leray suppression of the dangerous sector",
+      "line_number": 505,
+      "has_proof": false,
+      "status": "SKIPPED",
+      "method": "No automated verifier registered",
+      "notes": "Claim type: proposition, title: Leray suppression of the dangerous sector",
+      "details": null
+    },
+    {
+      "label": "unlabeled:definition:530",
+      "env_type": "definition",
+      "title": "Directional information capacity",
+      "line_number": 530,
+      "has_proof": false,
+      "status": "SKIPPED",
+      "method": "No automated verifier registered",
+      "notes": "Claim type: definition, title: Directional information capacity",
+      "details": null
+    },
+    {
+      "label": "conj:bottleneck",
+      "env_type": "conjecture",
+      "title": "Directional Bottleneck",
+      "line_number": 538,
+      "has_proof": false,
+      "status": "SKIPPED",
+      "method": "No automated verifier registered",
+      "notes": "Claim type: conjecture, title: Directional Bottleneck",
+      "details": null
+    }
+  ]
+}

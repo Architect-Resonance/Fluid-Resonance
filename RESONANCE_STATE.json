@@ -1,7 +1,7 @@
 {
-  "checkpoint": "21.2.0",
-  "status_label": "S94_LERAY_WRITEUP_COMPLETE",
-  "timestamp": "2026-03-13T03:00:00Z",
+  "checkpoint": "22.0.0",
+  "status_label": "S95_ROADMAP_SET",
+  "timestamp": "2026-03-13T12:00:00Z",
   "single_source_of_truth": true,
 
   "team": {
@@ -186,5 +186,109 @@
     "P1": "Phase coherence control — multiple triads at same k3 can constructively interfere, pushing effective alpha_E above per-triad bound. THIS is the regularity problem.",
     "P2": "C-S exponent — alpha<1 reduces constant but not 3/2 exponent in enstrophy bound",
     "P3": "Extension of Migdal's No Explosion Theorem to deterministic ICs"
+  },
+
+  "S95_roadmap": {
+    "status": "ACTIVE — 4 approaches, starting with (d)",
+    "literature_survey_date": "2026-03-13",
+
+    "key_papers": {
+      "miller_2024": {
+        "ref": "Miller, On the interaction of strain and vorticity (arXiv:2407.02691)",
+        "relevance": "CRITICAL — proves global regularity for model equation with SAME enstrophy identity as NS. Gap between model and full NS = exactly our phase coherence question."
+      },
+      "lei_ren_tian_2025": {
+        "ref": "Lei, Ren, Tian, Geometric characterization of potential NS singularities (arXiv:2501.08976)",
+        "relevance": "HIGH — double-cone criterion on vorticity directions. May connect to our angular alpha formula."
+      },
+      "manfredini_gurcan_2025": {
+        "ref": "Manfredini & Gürcan, Nonlinear phase synchronization in shell models (arXiv:2507.14142)",
+        "relevance": "HIGH — Kuramoto order parameter for triadic phase coherence. Direct tool for measuring P1 numerically."
+      },
+      "migdal_v5_2024": {
+        "ref": "Migdal, Duality of NS to 1D system v5 (arXiv:2411.01389v5)",
+        "relevance": "CONTEXT — No Explosion Theorem still stochastic only. Euler ensemble attractor universality open."
+      },
+      "hou_2024": {
+        "ref": "Hou, Nearly self-similar blowup of generalized axisymmetric NS (arXiv:2405.10916v2)",
+        "relevance": "CONTEXT — blowup at dim=3.188, not 3. Shows NS is near-critical; any constant reduction matters."
+      }
+    },
+
+    "approach_d_something_different": {
+      "priority": 1,
+      "status": "ASSESSED (S98-M1d)",
+      "d1_probabilistic_regularity": "ASSESSED: 4 fundamental gaps identified. NPS framework insufficient without phase measure. Current limit reached.",
+      "d2_hausdorff_dimension": "ASSESSED: sin^2(theta)/4 improves CKN epsilon_0 by ~4x but NOT dimension (Lu-Doering sharp). q_CLT = 3/2 = gamma_critical universality discovered.",
+      "d3_lean4_formalization": "ASSESSED: 3-tier scope. Algebra (weeks), Calculus (months), Infrastructure (years). Not prioritized."
+    },
+    "approach_f_helicity_chirality_bridge": {
+      "priority": "NEW (S98-M2c/M1d)",
+      "combined_suppression": "alpha_total = sin^2(theta)/4 * (1 - sigma^2(k))",
+      "f1_biferale_titi": "PROVED: sigma=+/-1 => global regularity",
+      "f2_kraichnan_decay": "PROVED: sigma(k) -> 0 at high k",
+      "f3_tao_necessity": "PROVED: breaking helicity conservation enables blowup",
+      "f4_sigma_measurement": "M2 RUNNING (helical_imbalance_f4.py)",
+      "f5_sigma_bound": "TODO — equivalent to Millennium Problem",
+      "f6_interpolation": "ASSESSED (M1d): eps_critical ~ C/Re -> 0. Scale gap 3/28 > 0 is a THEOREM. CLT alone cannot close gap.",
+      "the_gap": "sigma in (0,1). Three layers (geometric + topological + statistical) improve constants, not scaling. Dynamical input needed."
+    },
+    "approach_a_phase_coherence": {
+      "priority": 2,
+      "a1_kuramoto_dns": "Measure Kuramoto R_K(k) in pseudospectral DNS — are triadic phases clustered or dispersed?",
+      "a2_manfredini_test": "Test if full 3D triadic phases cluster near pi/2 (shell model optimum)",
+      "a3_sublinear_bound": "Try: alpha_eff(k) <= alpha_per_triad * f(N_k) with f sub-linear",
+      "a4_cone_connection": "Connect alpha<1/3 to Lei-Ren-Tian double-cone criterion"
+    },
+    "approach_b_structural_identity": {
+      "priority": 3,
+      "b1_miller_deep_read": "Understand what breaks between Miller's regular model and full NS",
+      "b2_decomposition_script": "Compute Miller's term + remainder in DNS, measure remainder",
+      "b3_helicity_interpolation": "Can sin^2(theta)/4 factor improve interpolation exponent for cross-helical part?"
+    },
+    "approach_c_migdal_extension": {
+      "priority": 4,
+      "c1_identify_gap": "Where exactly does Migdal's stochastic averaging fail for deterministic ICs?",
+      "c2_mollification": "Approximate deterministic ICs by stochastic sequence, check if loop-space bounds are uniform",
+      "c3_bt_in_loop_space": "Formalize BT-projected NS in Migdal's loop framework"
+    },
+    "approach_g_berry_frustration": {
+      "priority": "NEW (S100-M1)",
+      "berry_connection": "A_lam = -cos(phi), F = sin(phi), Chern number = 2, flux = 4pi",
+      "g1_frustration_analysis": "DONE (S100-M1). NEGATIVE for gap closure. Four theorems: T1 topological obstruction, T2 isotropic q>=3/2, T3 constant-sum trade-off, T4 crossover at delta~1/sqrt(k).",
+      "pencil_loophole": "Vortex tubes circumvent Berry by concentrating in narrow angular cones. Total stretching delta-independent (constant-sum game).",
+      "three_level_refinement": "kinematic (sin^2/4) -> topological (Berry q>=3/2 iso) -> dynamical (geometry = the gap)",
+      "anti_twist_synergy": "OPEN. If delta >= k^(-1/2+eps), eps > 3/56, gap closes. Buaria anti-twist connection. Unproved.",
+      "script": "scripts/wip/berry_frustration_g1.py"
+    }
+  },
+
+  "fourier_physical_bridge": {
+    "session": "S95-W",
+    "method": "Phase scramble test: keep |u_hat(k)|, randomize phases, compare alpha and stretching",
+    "result_1_magnitude": {
+      "finding": "NS dynamics HELP Leray suppression",
+      "alpha_ratio_TG": 0.18,
+      "alpha_ratio_Random": 0.96,
+      "alpha_ratio_Imbalanced": 0.97,
+      "interpretation": "Actual alpha < scrambled alpha. Dynamics make Lamb MORE gradient-like."
+    },
+    "result_2_tubes": {
+      "finding": "Vortex tubes are MORE suppressed than background",
+      "alpha_inside_tubes": 0.32,
+      "alpha_outside_tubes": 0.47,
+      "interpretation": "Tubes concentrate gradient Lamb, not solenoidal."
+    },
+    "result_3_stretching": {
+      "finding": "Scrambled fields have NEGATIVE stretching",
+      "S_actual_positive": true,
+      "S_scrambled_negative": true,
+      "interpretation": "Random phases cannot produce positive omega.S.omega. Stretching REQUIRES NS-correlated phases."
+    },
+    "bridge_mechanism": "Laser vs lightbulb: NS compresses solenoidal Lamb into smaller fraction but focuses it precisely on vorticity structure. Less total solenoidal forcing, but perfectly aligned for stretching.",
+    "implication_for_regularity": "Question shifts from 'how much Lamb survives Leray' (dynamics help) to 'can focused aligned residual drive S/D > 1 long enough for blowup'",
+    "literature_connection": "Servidio & Matthaeus 2008 (PRL) — depression of nonlinearity. Ohkitani & Kishiba 1995 — phases carry structure. Farge et al. 2001 — 3% phase-coherent coefficients carry all info.",
+    "scripts": ["fourier_physical_bridge.py", "stretching_coherence.py", "alignment_bridge.py"],
+    "status": "OBSERVED (Numerical, S95-W)"
   }
 }

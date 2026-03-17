@@ -433,6 +433,18 @@ class SpectralNS:
         omega = np.array([np.real(ifftn(omega_hat[i])) for i in range(3)])
         return 0.5 * np.mean(np.sum(omega**2, axis=0))
 
+    def compute_total_energy(self, u_hat):
+        """E = (1/2) * <|u|^2> — total kinetic energy."""
+        u = np.array([np.real(ifftn(u_hat[i])) for i in range(3)])
+        return 0.5 * np.mean(np.sum(u**2, axis=0))
+
+    def compute_total_helicity(self, u_hat):
+        """H = <u · omega> — total helicity."""
+        omega_hat = self.compute_vorticity_hat(u_hat)
+        u = np.array([np.real(ifftn(u_hat[i])) for i in range(3)])
+        omega = np.array([np.real(ifftn(omega_hat[i])) for i in range(3)])
+        return np.mean(np.sum(u * omega, axis=0))
+
 
 # ============================================================
 # SINGLE IC RUN — returns all tracked arrays
@@ -464,6 +476,7 @@ def run_single_ic(solver, ic_name, u_hat_ic, dt=0.005, T=5.0, report_every=20, v
     S_same_a, S_cross_a = [], []
     Z_bt_a, S_bt_a, D_bt_a = [], [], []
     hp_frac_a = []
+    E_full_a, E_bt_a, H_full_a, H_bt_a = [], [], [], []
 
     for step in range(n_steps + 1):
         t = step * dt
@@ -479,12 +492,19 @@ def run_single_ic(solver, ic_name, u_hat_ic, dt=0.005, T=5.0, report_every=20, v
             S_same_a.append(S_same_f); S_cross_a.append(S_cross_f)
             Z_bt_a.append(Z_b); S_bt_a.append(S_b); D_bt_a.append(D_b)
             hp_frac_a.append(hp_f)
+            E_full_a.append(solver.compute_total_energy(u_hat_full))
+            H_full_a.append(solver.compute_total_helicity(u_hat_full))
+            E_bt_a.append(solver.compute_total_energy(u_hat_bt))
+            H_bt_a.append(solver.compute_total_helicity(u_hat_bt))
 
             if verbose and step % (report_every * 5) == 0:
                 SD_f = S_f / D_f if abs(D_f) > 1e-30 else 0.0
                 SD_b = S_b / D_b if abs(D_b) > 1e-30 else 0.0
+                E_f = E_full_a[-1]; H_f = H_full_a[-1]
+                E_b = E_bt_a[-1]; H_b = H_bt_a[-1]
                 print(f"{t:5.2f} | {Z_f:10.4e} {S_f:10.4e} {D_f:10.4e} {SD_f:7.3f} | "
                       f"{Z_b:10.4e} {S_b:10.4e} {D_b:10.4e} {SD_b:7.3f} | {hp_f*100:5.1f}")
+                print(f"      | E_f={E_f:.4e} H_f={H_f:+.4e} | E_bt={E_b:.4e} H_bt={H_b:+.4e}")
 
         if step < n_steps:
             u_hat_full = solver.step_rk4(u_hat_full, dt, mode='full')
@@ -497,6 +517,8 @@ def run_single_ic(solver, ic_name, u_hat_ic, dt=0.005, T=5.0, report_every=20, v
         'S_same': np.array(S_same_a), 'S_cross': np.array(S_cross_a),
         'Z_bt': np.array(Z_bt_a), 'S_bt': np.array(S_bt_a), 'D_bt': np.array(D_bt_a),
         'hp_frac': np.array(hp_frac_a),
+        'E_full': np.array(E_full_a), 'E_bt': np.array(E_bt_a),
+        'H_full': np.array(H_full_a), 'H_bt': np.array(H_bt_a),
     }
 
 

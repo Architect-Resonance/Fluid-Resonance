@@ -21,7 +21,7 @@
     "cluster": "K5+2anchor",
     "bridge_width": 3,
     "bridge_clauses": "asymmetric 3-clause",
-    "stokes_gap_reduced": 1.7688636897,
+    "_removed_stokes_gap_reduced": "1.7688636897 — was R/1.05 with arbitrary epsilon=0.05. Not a physical invariant. Retracted by Antigravity S99.",
     "_removed_vitreous_density": "0.952381 — made-up metric, no mathematical definition (Antigravity, archived)",
     "_removed_snap_back_ratio": "1.5275 — overclaiming label for Stokes gap ratio (Antigravity, archived)",
     "_removed_safe_harbor_limit": "1.518 — overclaiming label for Stokes gap (Antigravity, archived)"
@@ -86,8 +86,8 @@
       "Thm 8.1: Enstrophy-Eigenvalue Identity",
       "Thm 8.3: Topological Regularization",
       "Thm 9.1: R < 2 for pure K_n cores (reduction to -16 < 16)",
-      "Thm 12.1: Hodge 1-Laplacian Identity (L_1 = nI)",
-      "Thm 12.2: Receding Threshold Law (Z_max/Z_crit ~ 1/n)"
+      "Thm 12.1: Hodge 1-Laplacian Identity (L_1 = nI on K_n) — VERIFIED by direct computation (K_3 through K_8). Matrix identity is TRUE. Previous retraction was about misuse (multiplying n×sin²θ/4), not the identity itself.",
+      "_RETRACTED Thm 12.2: Receding Threshold Law (Z_max/Z_crit ~ 1/n) — dependent on L_1, retracted with it"
     ],
     "open_conjectures": [
       "Claim 7.1: Star topology as asymptotic limit of vortex stretching (OPEN)",
